@@ -1,0 +1,39 @@
+.background{
+    top:0;
+    margin: 0;
+    left:0;
+    padding:0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+.form{
+   width: 300px;
+   height: 200px;
+   background-color: transparent;
+   position: absolute;
+   top: 20%;
+   left:36%;
+}
+
+.input{
+    margin-bottom: 15px;
+}
+
+.transparent-form{
+    background-color: transparent;
+    border: 0;
+}
+
+
+h3{
+ text-align: center;
+ margin-top: 40px;
+ color: whitesmoke;
+ position: relative;
+
+}
+
+.btnRegister{
+    margin-right: 105px;
+}
