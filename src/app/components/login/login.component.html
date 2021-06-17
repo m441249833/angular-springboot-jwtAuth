@@ -1,9 +1,9 @@
 <div class="background" [ngStyle]="{'background-image': imgUrl,'background-size':'cover'} ">
-<div class="form">
-  <h3>Please login</h3>
-    <form class="form-control transparent-form" (ngSubmit)="onSubmit()" ngNativeValidate>
+  <div class="form">
+     <h3>Please login</h3>
+      <form class="form-control transparent-form" (ngSubmit)="onSubmit()" ngNativeValidate>
             <div class="form-floating ">
-                <input type="email" class="form-control input" id="login_username" name="login_username" placeholder="Username" [(ngModel)]='form.username' required>
+                <input type="text" class="form-control input" id="login_username" name="login_username" placeholder="Username" [(ngModel)]='form.username' required>
                 <label for="username">Username</label>
             </div>
           <div class="form-floating">
@@ -14,10 +14,13 @@
             <input type="checkbox" class="form-check-input" id="check">
             <label class="form-check-label" for="check"><p style="color:azure;">Remember me</p></label>
           </div>
+        <div *ngIf="isLoginFailed" class="alert alert-danger">login failed : {{errorMessage}}</div>
         <div>
             <button class="btn btn-secondary btnRegister" data-bs-toggle="modal" data-bs-target="#registerModal" type="button">Signup</button>
             <button class="btn btn-primary" type="submit">Signin</button>
         </div>
     </form>
+  </div>
 </div>
-</div>
+
+<app-register></app-register>

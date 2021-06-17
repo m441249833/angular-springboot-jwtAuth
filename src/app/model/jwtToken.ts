@@ -1,8 +1,8 @@
 export class jwtToken{
-    token:string;
+    TOKEN:string;
 
-    constructor(token : string){
-        this.token = token;
+    constructor(TOKEN : string){
+        this.TOKEN = TOKEN;
     }
     
 }

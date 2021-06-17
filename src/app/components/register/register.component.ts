@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private register:AuthService) { }
+  constructor(private auth:AuthService) { }
 
   form : any={}
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
       return;
     }
     const newUser:User= new User(this.form.username,this.form.password,this.form.email);
-    this.register.signUp(newUser).subscribe(
+    this.auth.signUp(newUser).subscribe(
       data=>{
         console.log(data)
         alert("Sign up success!")
@@ -32,6 +32,10 @@ export class RegisterComponent implements OnInit {
         window.location.reload()
       }
     );
+    this.clearForm();
+  }
+
+  clearForm(){
     this.form={}
   }
 

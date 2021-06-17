@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { AuthGuardService } from 'src/app/services/authguard.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
@@ -12,11 +14,12 @@ export class LoginComponent implements OnInit {
   imgUrl : string = 'url(../../../assets/images/login.jpg)';
 
   form: any={}
-  isLoggedIn = false;
   isLoginFailed = false;
   errorMessage='';
 
-  constructor(private auth:AuthService, private tokenStorage:TokenStorageService) {}
+  constructor(private auth:AuthService, 
+              private tokenStorage:TokenStorageService,
+              private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -24,14 +27,14 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.auth.attemptAuth(this.form.username,this.form.password).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.token);
-        this.isLoggedIn = true;
+        this.tokenStorage.saveToken(data.TOKEN);
+        this.tokenStorage.saveUsername(this.form.username);
         this.isLoginFailed = false;
-        window.location.reload();
+        this.router.navigateByUrl('/home')
       },
       error => {
         console.log(error);
-        this.errorMessage = error;
+        this.errorMessage = JSON.parse(error.error).message;
         this.isLoginFailed = true;
       }
     );
