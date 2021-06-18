@@ -6,6 +6,8 @@ const USERNAME_KEY = "USERNAME";
 @Injectable({
   providedIn: 'root'
 })
+
+//get information from session storage;
 export class TokenStorageService {
 
   constructor() { }

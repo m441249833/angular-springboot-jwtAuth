@@ -11,7 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import { AuthGuardService } from './services/authguard.service';
-import { TokenStorageService } from './services/token-storage.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
     path: 'login' , component: LoginComponent
   },
   {
-    path: 'home',component: HomeComponent,canActivate:[AuthGuardService]
+    path: 'home',component: HomeComponent,canActivate:[AuthGuardService] // use a guard to prevent unauthorized request
   }
 ]
 
@@ -31,7 +31,8 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ export class AuthGuardService implements CanActivate {
     private token:TokenStorageService
   ) {}
 
-
+ // routing condition
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const s = this.token.getToken();
     if (s != null) {

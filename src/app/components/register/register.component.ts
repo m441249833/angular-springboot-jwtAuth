@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
       },
       error=>{
         console.log(error)
-        alert(error)
+        alert(error.error)
         window.location.reload()
       }
     );

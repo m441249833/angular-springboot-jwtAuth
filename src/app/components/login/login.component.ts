@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.errorMessage = JSON.parse(error.error).message;
+        this.errorMessage = error.error;
         this.isLoginFailed = true;
       }
     );
