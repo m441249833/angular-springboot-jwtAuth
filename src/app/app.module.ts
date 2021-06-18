@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import { AuthGuardService } from './services/authguard.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
   },
   {
     path: 'home',component: HomeComponent,canActivate:[AuthGuardService] // use a guard to prevent unauthorized request
+  },
+  {
+    path:'contact',component: ContactComponent,canActivate:[AuthGuardService]
   }
 ]
 
@@ -32,7 +36,8 @@ const routes: Routes = [
     RegisterComponent,
     HomeComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
