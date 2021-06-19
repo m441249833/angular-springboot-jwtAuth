@@ -11,8 +11,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import { AuthGuardService } from './services/authguard.service';
+import {AdminGuardService} from './services/adminguard.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,9 @@ const routes: Routes = [
   },
   {
     path:'contact',component: ContactComponent,canActivate:[AuthGuardService]
+  },
+  {
+    path:'adminPage',component:AdminPageComponent,canActivate:[AdminGuardService]
   }
 ]
 
@@ -37,7 +42,8 @@ const routes: Routes = [
     HomeComponent,
     NavbarComponent,
     DashboardComponent,
-    ContactComponent
+    ContactComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,7 @@ const routes: Routes = [
     }),
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService,AdminGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { User } from '../model/User';
 
 const TOKEN_KEY= "TOKEN";
 const USERNAME_KEY = "USERNAME";
+const ROLE_KEY = "ROLE_ID";
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +32,15 @@ export class TokenStorageService {
 
   public getUsername():string | null{
     return window.sessionStorage.getItem(USERNAME_KEY);
+  }
+
+  public saveRole(roleId:string){
+    window.sessionStorage.removeItem(ROLE_KEY);
+    window.sessionStorage.setItem(ROLE_KEY,roleId);
+  }
+
+  public getRole():string | null{
+    return window.sessionStorage.getItem(ROLE_KEY)
   }
 
 }

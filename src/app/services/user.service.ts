@@ -13,15 +13,21 @@ export class UserService {
 
   constructor(
     private http:HttpClient,
-    private token:TokenStorageService) {
+    private token:TokenStorageService) {  
     }
-  tokenStr = this.token.getToken()
-  httpOptions={
-    headers: new HttpHeaders({"Content-Type":"application/json","Authorization":this.tokenStr?this.tokenStr:""})
-  }
+
   
   getUser():Observable<User>{
-    return this.http.get<User>(`${this.baseUrl}user/currentUser`,this.httpOptions)
+    return this.http.get<User>(`${this.baseUrl}user/currentUser`,{headers:this.getHeader()})
+  }
+
+  getAllUser():Observable<User[]>{
+    return this.http.get<User[]>(`${this.baseUrl}user/all`,{headers:this.getHeader()})
+  }
+
+  private getHeader():HttpHeaders{
+    let t = this.token.getToken();
+    return new HttpHeaders({"Content-Type":"application/json","Authorization":t?t:""})
   }
 
 }

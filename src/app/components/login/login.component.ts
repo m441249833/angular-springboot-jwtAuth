@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { AuthGuardService } from 'src/app/services/authguard.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
@@ -29,6 +28,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.tokenStorage.saveToken(data.TOKEN);
         this.tokenStorage.saveUsername(this.form.username);
+        this.tokenStorage.saveRole(data.ROLE);
         this.isLoginFailed = false;
         this.router.navigateByUrl('/home')
       },

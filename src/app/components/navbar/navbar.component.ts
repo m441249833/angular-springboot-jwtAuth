@@ -26,4 +26,10 @@ export class NavbarComponent implements OnInit {
       this.router.navigateByUrl('/login');
     }
   }
+
+  isAdmin():boolean{
+    let role = this.token.getRole()
+    if (role === '1') return true;
+    return false;
+  }
 }
