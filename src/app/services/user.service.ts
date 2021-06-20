@@ -25,6 +25,10 @@ export class UserService {
     return this.http.get<User[]>(`${this.baseUrl}user/all`,{headers:this.getHeader()})
   }
 
+  updateUser(user:any):Observable<User>{
+    return this.http.put<any>(`${this.baseUrl}user/update`,user,{headers:this.getHeader()})
+  }
+
   private getHeader():HttpHeaders{
     let t = this.token.getToken();
     return new HttpHeaders({"Content-Type":"application/json","Authorization":t?t:""})

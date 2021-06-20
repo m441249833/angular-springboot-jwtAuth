@@ -15,6 +15,7 @@ import {AdminGuardService} from './services/adminguard.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   {
@@ -56,7 +57,8 @@ const routes: Routes = [
         }
       }
     }),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FontAwesomeModule
   ],
   providers: [AuthGuardService,AdminGuardService],
   bootstrap: [AppComponent]

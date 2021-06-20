@@ -1,2 +1,28 @@
 <app-navbar></app-navbar>
-<p>admin-page works!</p>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">Role</th>
+                <th scope="col">Email</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <th scope="row">{{user.id}}</th>
+                <td>{{user.username}}</td>
+                <td>{{user.role.name}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    <fa-icon (click)="onUpdate(user)" [ngStyle]="{'color':'#6495ED'}" [icon]="faPenSquare">
+                    </fa-icon>
+                    <fa-icon (click)="onDelete(user.id)" [ngStyle]="{'color':'#DC143C'}" [icon]="faTimes">
+                    </fa-icon>
+                </td>
+            </tr>
+
+    </table>
+</div>

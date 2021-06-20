@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import {faTimes,faPenSquare} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-admin-page',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPageComponent implements OnInit {
 
-  constructor() { }
+  users:any[]=[];
+  faTimes = faTimes;
+  faPenSquare = faPenSquare;
+
+  constructor(private userService : UserService){
+    userService.getAllUser().subscribe(
+      data=>{
+        this.users = data;
+      });
+   }
 
   ngOnInit(): void {
+  }
+
+  onUpdate(user:any){
+    
+  }
+
+  onDelete(id:number){
+    
   }
 
 }
