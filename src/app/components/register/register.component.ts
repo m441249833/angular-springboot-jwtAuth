@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
       data=>{
         console.log(data)
         alert("Sign up success!")
+        window.location.reload()
       },
       error=>{
         console.log(error)

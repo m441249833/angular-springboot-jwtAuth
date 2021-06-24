@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http'
 import {JwtModule} from '@auth0/angular-jwt';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -16,6 +17,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
 
 const routes: Routes = [
   {
@@ -44,7 +46,8 @@ const routes: Routes = [
     NavbarComponent,
     DashboardComponent,
     ContactComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ const routes: Routes = [
       }
     }),
     RouterModule.forRoot(routes),
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbModule
   ],
   providers: [AuthGuardService,AdminGuardService],
   bootstrap: [AppComponent]

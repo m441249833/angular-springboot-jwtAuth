@@ -2,3 +2,9 @@ fa-icon {
   margin-right: 20px;
   margin-left: 10px;
 }
+
+select {
+  width: 30%;
+  margin-left: 70%;
+  margin-bottom: 20px;
+}

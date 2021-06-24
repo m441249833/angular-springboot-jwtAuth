@@ -21,12 +21,20 @@ export class UserService {
     return this.http.get<User>(`${this.baseUrl}user/currentUser`,{headers:this.getHeader()})
   }
 
+  getUserById(id:number):Observable<User>{
+    return this.http.get<User>(`${this.baseUrl}user/${id}`,{headers:this.getHeader()})
+  }
+
   getAllUser():Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUrl}user/all`,{headers:this.getHeader()})
   }
 
   updateUser(user:any):Observable<User>{
     return this.http.put<any>(`${this.baseUrl}user/update`,user,{headers:this.getHeader()})
+  }
+
+  deleteUser(id:number){
+    return this.http.delete<number>(`${this.baseUrl}user/delete?id=${id}`,{headers:this.getHeader()})
   }
 
   private getHeader():HttpHeaders{
