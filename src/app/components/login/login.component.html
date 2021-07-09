@@ -1,9 +1,6 @@
 <div class="background" [ngStyle]="{'background-image': imgUrl,'background-size':'cover'} ">
   <div class="form">
-    <h3>Please login</h3>
-    <div *ngIf="signupAlert" class="alert alert-success fade show" role="alert">
-      <strong>signup success!</strong>
-    </div>
+    <h3>Welcome</h3>
     <form class="form-control transparent-form" (ngSubmit)="onSubmit()" ngNativeValidate>
       <div class="form-floating ">
         <input type="text" class="form-control input" id="login_username" name="login_username" placeholder="Username"
@@ -22,13 +19,13 @@
         </label>
       </div> -->
       <div *ngIf="isLoginFailed" class="alert alert-danger">login failed : {{errorMessage}}</div>
-      <div>
-        <button class="btn btn-secondary btnRegister" data-toggle="modal" data-target="#registerModal"
-          type="button">Signup</button>
-        <button class="btn btn-primary" type="submit">Login</button>
+      <div *ngIf="signupAlert" class="alert alert-success fade show" role="alert">
+        <strong>signup success!</strong>
+      </div>
+      <div style="position: relative; margin-top: 30px;">
+        <button class="btn btn-secondary" (click)="onSignup()" type="button">Signup</button>
+        <button class="btn btn-primary btnLogin" type="submit">Login</button>
       </div>
     </form>
   </div>
 </div>
-
-<app-register></app-register>

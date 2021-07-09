@@ -26,10 +26,6 @@
   border: 0;
 }
 
-.alert {
-  margin: 4%;
-}
-
 h3 {
   text-align: center;
   margin-top: 40px;
@@ -38,6 +34,7 @@ h3 {
   position: relative;
 }
 
-.btnRegister {
-  margin-right: 105px;
+.btnLogin {
+  position: absolute;
+  right: 0%;
 }

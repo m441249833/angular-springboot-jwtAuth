@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/User';
 import { AuthService } from 'src/app/services/auth.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-register',
@@ -9,31 +10,34 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private auth:AuthService) { }
+  constructor(private auth:AuthService,public modal:NgbActiveModal) { }
 
   form : any={}
+  isRegisterFailed:Boolean = false;
+  errorMessage:String = "";
   ngOnInit(): void {
   }
 
   onSubmit(){
     if (this.form.password !== this.form.password2){
-      alert("password don't match!");
+      this.isRegisterFailed = true;
+      this.errorMessage = "Password not match."
       return;
     }
     const newUser:User= new User(this.form.username,this.form.password,this.form.email);
     this.auth.signUp(newUser).subscribe(
       data=>{
         console.log(data)
-        alert("Sign up success!")
-        window.location.reload()
+        this.clearForm();
+        this.modal.close()
       },
       error=>{
-        console.log(error)
-        alert(error.error)
-        window.location.reload()
+        console.log(error.error.message)
+        this.errorMessage = error.error.message
+        this.isRegisterFailed = true;
+        return;
       }
     );
-    this.clearForm();
   }
 
   clearForm(){

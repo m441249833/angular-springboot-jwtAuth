@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private auth:AuthService, 
               private tokenStorage:TokenStorageService,
-              private router: Router) {}
+              private router: Router,
+              private modalService:NgbModal) {}
 
   ngOnInit(): void {
   }
@@ -40,6 +43,17 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
+  }
+
+  onSignup(){
+    const ref = this.modalService.open(RegisterComponent);
+    ref.result.then((yes)=>{
+      this.signupAlert=true;
+    },
+    (cancel)=>{
+      return;
+    }
+    )
   }
   
 
