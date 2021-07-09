@@ -26,6 +26,10 @@
   border: 0;
 }
 
+.alert {
+  margin: 4%;
+}
+
 h3 {
   text-align: center;
   margin-top: 40px;

@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   signUp(info:User):Observable<string>{
-    return this.http.post<string>(this.baseUrl+'user/signup',info,httpOptions);
+    return this.http.post<string>(this.baseUrl+'user',info,httpOptions);
   }
 
 }

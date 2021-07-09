@@ -8,3 +8,11 @@ select {
   margin-left: 70%;
   margin-bottom: 20px;
 }
+
+.div1 {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  border-color: black;
+  border-style: solid;
+}

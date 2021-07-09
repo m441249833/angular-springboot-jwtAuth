@@ -17,7 +17,8 @@ export class DashboardComponent implements OnInit {
     this.username = data.username;
     this.email = data.email;
     this.role = data.role.name;
-  }) }
+  }) 
+  }
 
   ngOnInit(): void {
   }

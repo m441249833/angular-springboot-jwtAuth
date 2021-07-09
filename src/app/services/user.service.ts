@@ -17,28 +17,28 @@ export class UserService {
     }
 
   
-  getUser():Observable<User>{
-    return this.http.get<User>(`${this.baseUrl}user/currentUser`,{headers:this.getHeader()})
+  getUser():Observable<any>{
+    return this.http.get<any>(`${this.baseUrl}user/currentUser`,{headers:this.getHeader()})
   }
 
-  getUserById(id:number):Observable<User>{
+  getUserById(id:String):Observable<User>{
     return this.http.get<User>(`${this.baseUrl}user/${id}`,{headers:this.getHeader()})
   }
 
-  getAllUser():Observable<User[]>{
-    return this.http.get<User[]>(`${this.baseUrl}user/all`,{headers:this.getHeader()})
+  getAllUser():Observable<any[]>{
+    return this.http.get<any[]>(`${this.baseUrl}user/all`,{headers:this.getHeader()})
   }
 
   updateUser(user:any):Observable<User>{
-    return this.http.put<any>(`${this.baseUrl}user/update`,user,{headers:this.getHeader()})
+    return this.http.patch<any>(`${this.baseUrl}user/${user._id}`,user,{headers:this.getHeader()})
   }
 
-  deleteUser(id:number){
-    return this.http.delete<number>(`${this.baseUrl}user/delete?id=${id}`,{headers:this.getHeader()})
+  deleteUser(id:string){
+    return this.http.delete<number>(`${this.baseUrl}user/${id}`,{headers:this.getHeader()})
   }
 
   private getHeader():HttpHeaders{
-    let t = this.token.getToken();
+    const t = this.token.getToken();
     return new HttpHeaders({"Content-Type":"application/json","Authorization":t?t:""})
   }
 

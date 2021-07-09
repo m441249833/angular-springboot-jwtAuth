@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   form: any={}
   isLoginFailed = false;
   errorMessage='';
+  signupAlert=false;
 
   constructor(private auth:AuthService, 
               private tokenStorage:TokenStorageService,
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveUsername(this.form.username);
         this.tokenStorage.saveRole(data.ROLE);
         this.isLoginFailed = false;
+        this.signupAlert=true;
         this.router.navigateByUrl('/home')
       },
       error => {
