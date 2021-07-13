@@ -3,16 +3,31 @@ fa-icon {
   margin-left: 10px;
 }
 
-select {
-  width: 30%;
-  margin-left: 70%;
-  margin-bottom: 20px;
-}
-
 .div1 {
-  width: 80%;
+  width: 90%;
   margin: auto;
   margin-top: 20px;
   border-color: black;
   border-style: solid;
+}
+
+.btn-right {
+  float: right;
+}
+
+.adminBackground {
+  background-image: url(../../../assets/images/admin.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  position: absolute;
+}
+
+td,
+th {
+  font-size: 20px;
+  font-family: sans-serif;
+  font-style: oblique;
 }

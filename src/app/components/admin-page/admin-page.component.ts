@@ -30,11 +30,9 @@ export class AdminPageComponent implements OnInit {
     ref.result.then((yes)=>{
       console.log("OK");
       this.updateUsersView();
-      console.log(this.users)
     },
     (cancel)=>{
       console.log("cancel");
-      console.log(user);
       return;
     }
     )
@@ -44,7 +42,6 @@ export class AdminPageComponent implements OnInit {
     if (confirm('Are you sure you want to delete user '+user.username+' ?'))
     this.userService.deleteUser(user._id).subscribe(data=>{
       this.users = this.users.filter(u=>u._id!==user._id)
-      console.log(this.users);
     })
   }
 

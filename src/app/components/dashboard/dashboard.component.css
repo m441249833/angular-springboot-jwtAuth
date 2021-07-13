@@ -1,3 +1,28 @@
-.dashboard {
+.banner {
+  width: 100%;
+  height: 355px;
   text-align: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.banner1 {
+  background-image: url(../../../assets/images/dashboard/banner1.jpg);
+}
+
+.home1 {
+  background-image: url(../../../assets/images/home/home1.jpg);
+}
+
+.home2 {
+  background-image: url(../../../assets/images/home/home2.jpg);
+}
+
+h3,
+h6 {
+  color: #fff;
+  position: relative;
+  top: 100px;
 }

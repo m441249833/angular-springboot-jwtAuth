@@ -8,7 +8,7 @@ export class User{
             this.username=username;
             this.password=password;
             this.email=email;
-            this.role={id:2,name:'user'};
+            this.role={id:2,name:'User'};
         }
     
 }

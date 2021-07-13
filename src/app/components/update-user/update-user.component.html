@@ -16,6 +16,7 @@
                 placeholder="Email Address" required>
             <label for="email">Email Address</label>
         </div>
+        <b>Role</b>
         <select class="custom-select" [(ngModel)]="user.role.id" name="role">
             <option [value]="1" [selected]="user.role.id == '1'">Administrator</option>
             <option [value]="2" [selected]="user.role.id == '2'">User</option>
